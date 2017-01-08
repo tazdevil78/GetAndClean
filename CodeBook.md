@@ -36,6 +36,6 @@ The following measures are included:
 [55] "fBodyGyroMeanZ"             "fBodyGyroStdDevX"          
 [57] "fBodyGyroStdDevY"           "fBodyGyroStdDevZ"          
 [59] "fBodyAccMagMean"            "fBodyAccMagStdDev"         
-[61] "fBodyBodyAccJerkMagMean"    "fBodyBodyAccJerkMagStdDev" 
+[61] "fBodyBodyAccJerkMagMean"    "fBodyBodyAccJerkMagStdDev"   
 [63] "fBodyBodyGyroMagMean"       "fBodyBodyGyroMagStdDev"    
 [65] "fBodyBodyGyroJerkMagMean"   "fBodyBodyGyroJerkMagStdDev"
