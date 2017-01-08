@@ -5,7 +5,7 @@ One row per measure
 Gives the average (mean) of the measure by subject and activity  
 Includes column headers, but not row names  
   
-The following measures are included:
+The following measures are included:  
  [1] "tBodyAccMeanX"              "tBodyAccMeanY"             
  [3] "tBodyAccMeanZ"              "tBodyAccStdDevX"           
  [5] "tBodyAccStdDevY"            "tBodyAccStdDevZ"           
