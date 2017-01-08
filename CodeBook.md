@@ -1,10 +1,10 @@
 Regarding the file output.txt:
-
-Space delimited
-One row per measure
-Gives the average (mean) of the measure by subject and activity
-Includes column headers, but not row names
-
+  
+Space delimited  
+One row per measure  
+Gives the average (mean) of the measure by subject and activity  
+Includes column headers, but not row names  
+  
 The following measures are included:
  [1] "tBodyAccMeanX"              "tBodyAccMeanY"             
  [3] "tBodyAccMeanZ"              "tBodyAccStdDevX"           
