@@ -10,7 +10,7 @@ feat <- feat[,2]
 #read test/X_test.txt - test data
 baseData <- scan("UCI HAR Dataset/test/X_test.txt")
 baseData <- matrix(baseData, ncol=561, byrow=T )
-baseData<-data.frame(baseData)
+baseData <- data.frame(baseData)
 
 #assing colnames from features
 colnames(baseData)<-feat
@@ -53,8 +53,7 @@ rm(trainData)
 
 # use grep to examine the column names and keep those with "-std()" or "-mean()".
 # also keep the subject id and activity cd.
-colsMask <- grepl("-std()", names(baseData), fixed=T)
-colsMask <- colsMask | grepl("-mean()", names(baseData), fixed=T)
+colsMask <- grepl("[Mm]ean|std", names(baseData))
 colsMask[562:563] <- T
 
 sub1 <- baseData[,colsMask]
@@ -63,7 +62,7 @@ rm(colsMask)
 ## 3. Uses descriptive activity names to name the activities in the data set
 
 #read activity_labels.txt - decode for activity id
-act_xref <- read.delim("UCI HAR Dataset/activity_labels.txt", header=F, sep=" " ) #, colClasses=c("integer","character"))
+act_xref <- read.delim("UCI HAR Dataset/activity_labels.txt", header=F, sep=" " )
 names(act_xref) <- c( "activitycd", "activitynm" )
 
 #merge labels with activity id
@@ -72,10 +71,7 @@ rm(act_xref)
 
 
 ## 4. Appropriately labels the data set with descriptive variable names.
-names(sub1)<-gsub("-mean()-", "Mean", names(sub1), fixed=T)
-names(sub1)<-gsub("-std()-", "StdDev", names(sub1), fixed=T)
-names(sub1)<-gsub("-std()", "StdDev", names(sub1), fixed=T)
-names(sub1)<-gsub("-mean()", "Mean", names(sub1), fixed=T)
+names(sub1)<-gsub("\\-|\\(|\\)|,", "", names(sub1) )
 
 
 # ## 5. From the data set in step 4, creates a second, independent tidy data set with the average of each variable for each activity and each subject.
@@ -88,4 +84,6 @@ sub2 <- melted %>%
   group_by(subjectid, activitycd, activitynm, variable) %>%
   summarize(average=mean(value))
 
-write.table(sub2, "output.txt", row.name=F)
+sub3 <- dcast( sub2, subjectid + activitycd + activitynm ~ variable)
+
+write.table(sub3, "output.txt", row.name=F)
