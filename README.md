@@ -1,6 +1,7 @@
 # GetAndClean
-Getting and Cleaning Data Course Project  
-
+Getting and Cleaning Data Course Project   
+This project contains the following files:  
+  
 run_analysis.R:  
 read UCI HAR Dataset/features.txt - col names for test data  
 read test/X_test.txt - test data  
